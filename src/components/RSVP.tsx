@@ -122,13 +122,6 @@ export const RSVP = () => {
             <p className="text-gray-600 font-serif text-2xl italic leading-relaxed mb-12 border-l-2 border-gold/20 pl-8">
               "To celebrate life, love, and the magic of togetherness, we invite you to join our journey."
             </p>
-            <div className="space-y-8">
-               <div>
-                  <h4 className="text-gold uppercase tracking-widest text-[10px] font-bold mb-2">For Assistance</h4>
-                  <span className="font-serif text-xl text-emerald block">manobk08@gmail.com</span>
-                  <span className="font-serif text-xl text-emerald block">+91 94950 67678</span>
-               </div>
-            </div>
           </div>
 
           <motion.form 

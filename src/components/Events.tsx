@@ -18,7 +18,7 @@ const EVENTS: WeddingEvent[] = [
     time: '10:30 AM - 11:30 AM',
     location: '',
     venue: 'Shangri-Laa Convention Center',
-    image: '/images/Shangrilaa.png'
+    image: '/images/Shangrilaa.webp'
   }
 ];
 

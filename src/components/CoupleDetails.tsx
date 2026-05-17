@@ -55,7 +55,7 @@ export const CoupleDetails = () => {
           >
             <div className="aspect-[3/4] relative rounded-3xl overflow-hidden border border-gold/30 shadow-[0_30px_80px_-20px_rgba(6,78,59,0.25)] ring-1 ring-emerald/10 ring-offset-4 ring-offset-ivory">
               <img
-                src="/images/bridegroom.png"
+                src="/images/bridegroom.webp"
                 alt="The Couple"
                 className="w-full h-full object-cover object-[center_15%]"
               />

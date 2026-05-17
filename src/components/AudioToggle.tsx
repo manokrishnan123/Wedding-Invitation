@@ -1,8 +1,17 @@
 import { motion } from 'motion/react';
 import { Volume2, VolumeX } from 'lucide-react';
-import { useState, useRef } from 'react';
+import { useState, useRef, createContext, useContext } from 'react';
 
-export const AudioToggle = () => {
+interface AudioContextType {
+  isPlaying: boolean;
+  toggleAudio: () => void;
+}
+
+const AudioContext = createContext<AudioContextType>({ isPlaying: false, toggleAudio: () => {} });
+
+export const useAudio = () => useContext(AudioContext);
+
+export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -22,10 +31,20 @@ export const AudioToggle = () => {
   };
 
   return (
+    <AudioContext.Provider value={{ isPlaying, toggleAudio }}>
+      {children}
+    </AudioContext.Provider>
+  );
+};
+
+export const AudioToggle = () => {
+  const { isPlaying, toggleAudio } = useAudio();
+
+  return (
     <motion.button
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="fixed bottom-24 right-6 md:bottom-12 md:right-12 z-[90] glass w-12 h-12 rounded-full flex items-center justify-center text-emerald shadow-2xl border-gold/20"
+      className="fixed bottom-12 right-12 z-[90] glass w-12 h-12 rounded-full items-center justify-center text-emerald shadow-2xl border-gold/20 hidden md:flex"
       onClick={toggleAudio}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
@@ -41,9 +60,9 @@ export const AudioToggle = () => {
       ) : (
         <VolumeX size={20} className="opacity-40" />
       )}
-      
+
       {/* Decorative tooltip */}
-      <div className="absolute right-14 bg-emerald text-white text-[9px] uppercase tracking-widest py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
+      <div className="absolute right-14 bg-emerald text-white text-[9px] uppercase tracking-widest py-1 px-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
         Ambient Music
       </div>
     </motion.button>

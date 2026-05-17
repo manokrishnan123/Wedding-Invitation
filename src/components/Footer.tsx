@@ -45,6 +45,12 @@ export const Footer = () => {
               "Love is the only thing that we can carry with us when we go, and it makes the end so easy."
             </p>
 
+            <div className="mt-12">
+              <h4 className="text-gold uppercase tracking-widest text-[10px] font-bold mb-3">For Assistance</h4>
+              <span className="font-serif text-xl text-emerald block">manobk08@gmail.com</span>
+              <span className="font-serif text-xl text-emerald block">+91 94950 67678</span>
+            </div>
+
             <div className="pt-20 border-t border-gold/10 flex flex-col md:flex-row justify-between items-center gap-8">
                <div className="text-[9px] text-gray-400 uppercase tracking-widest text-left space-y-1">
                  <p>© 2026 Mano & Bisna Wedding Experience.</p>

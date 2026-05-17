@@ -1,9 +1,18 @@
-import { motion, useScroll, useTransform } from 'motion/react';
-import { Heart, Calendar, MapPin, Image as ImageIcon, Send } from 'lucide-react';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'motion/react';
+import { Heart, Calendar, MapPin, Image as ImageIcon, Send, Volume2, VolumeX } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
+import { useState } from 'react';
+import { useAudio } from './AudioToggle';
 
 export const FloatingNav = () => {
   const { scrollY } = useScroll();
+  const [showMobileNav, setShowMobileNav] = useState(false);
+  const { isPlaying, toggleAudio } = useAudio();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setShowMobileNav(latest > 100);
+  });
+
   const navBackground = useTransform(
     scrollY,
     [0, 100],
@@ -57,26 +66,47 @@ export const FloatingNav = () => {
 
       {/* Mobile Nav (Floating Dock) */}
       <nav className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[100] w-auto md:hidden">
-        <motion.div 
+        <motion.div
           initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="glass rounded-full py-3 px-6 flex items-center gap-8 shadow-2xl shadow-black/40 border border-white/10"
+          animate={{ y: showMobileNav ? 0 : 50, opacity: showMobileNav ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="glass rounded-full py-3 px-6 flex items-center gap-6 shadow-2xl shadow-black/40 border border-white/10"
         >
           {navItems.map((item) => (
-            <a 
+            <a
               key={item.label}
               href={item.href}
               className="flex flex-col items-center gap-1 active:scale-90 transition-transform relative group"
             >
-              <div className="w-10 h-10 rounded-full flex items-center justify-center text-emerald/60 items-center justify-center group-hover:text-gold transition-colors">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center text-emerald/60 group-hover:text-gold transition-colors">
                  <item.icon size={22} strokeWidth={1.5} />
               </div>
-              <motion.div 
+              <motion.div
                 layoutId="mobileNavUnderline"
                 className="absolute -bottom-1 w-1 h-1 bg-gold rounded-full opacity-0 group-hover:opacity-100"
               />
             </a>
           ))}
+
+          {/* Divider */}
+          <div className="w-px h-8 bg-white/20" />
+
+          {/* Audio Toggle */}
+          <button
+            onClick={toggleAudio}
+            className="flex flex-col items-center gap-1 active:scale-90 transition-transform relative"
+          >
+            <div className="w-10 h-10 rounded-full flex items-center justify-center text-emerald/60 transition-colors relative">
+              {isPlaying ? (
+                <>
+                  <Volume2 size={22} strokeWidth={1.5} className="text-gold" />
+                  <div className="absolute inset-0 border border-gold/30 rounded-full animate-ping opacity-20" />
+                </>
+              ) : (
+                <VolumeX size={22} strokeWidth={1.5} className="opacity-40" />
+              )}
+            </div>
+          </button>
         </motion.div>
       </nav>
     </>

@@ -1,0 +1,6 @@
+{
+  "name": "Bisna & Mano - A Sacred Beginning",
+  "description": "A luxury cinematic wedding invitation for Bisna and Mano, celebrating their union in Kerala.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

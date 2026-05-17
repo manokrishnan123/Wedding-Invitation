@@ -28,12 +28,12 @@ export const CoupleDetails = () => {
 
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20">
           {/* The Groom */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center flex-1 w-full order-2 lg:order-1"
+            className="text-center flex-1 w-full order-2 lg:order-1 border border-gold/20 rounded-3xl p-8 md:p-10 bg-white/50 shadow-sm"
           >
             <span className="font-serif italic text-gold text-xl md:text-2xl mb-4 block">The Groom</span>
             <h3 className="font-display text-4xl md:text-6xl text-emerald mb-6 leading-tight whitespace-nowrap overflow-visible">Mano Krishnan</h3>
@@ -75,12 +75,12 @@ export const CoupleDetails = () => {
           </motion.div>
 
           {/* The Bride */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-center flex-1 w-full order-3"
+            className="text-center flex-1 w-full order-3 border border-gold/20 rounded-3xl p-8 md:p-10 bg-white/50 shadow-sm"
           >
             <span className="font-serif italic text-gold text-xl md:text-2xl mb-4 block">The Bride</span>
             <h3 className="font-display text-4xl md:text-6xl text-emerald mb-6 leading-tight whitespace-nowrap overflow-visible">Bisna S</h3>
@@ -99,7 +99,7 @@ export const CoupleDetails = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="mt-20 text-center"
+          className="mt-20 text-center border border-gold/20 rounded-3xl p-8 md:p-10 bg-white/50 shadow-sm max-w-xl mx-auto"
         >
           <p className="text-gold uppercase tracking-[0.4em] text-[10px] font-bold mb-4">Best Compliments</p>
           <p className="font-serif text-lg md:text-xl text-emerald">Kavya B Krishnan, Anuj Sasikumar, Family & Friends</p>

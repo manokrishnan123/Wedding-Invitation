@@ -47,29 +47,29 @@ export const CoupleDetails = () => {
           </motion.div>
 
           {/* Center Image/Ornament */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.5 }}
             className="relative flex-shrink-0 w-full lg:w-96 order-1 lg:order-2"
           >
-            <div className="aspect-[4/5] relative rounded-t-full overflow-hidden border-[12px] border-white shadow-2xl">
-              <img 
-                src="/src/assets/images/bridegroom.png" 
+            <div className="aspect-[3/4] relative rounded-3xl overflow-hidden border border-gold/30 shadow-[0_30px_80px_-20px_rgba(6,78,59,0.25)] ring-1 ring-emerald/10 ring-offset-4 ring-offset-ivory">
+              <img
+                src="/images/bridegroom.png"
                 alt="The Couple"
                 className="w-full h-full object-cover object-[center_15%]"
               />
               <div className="absolute inset-0 bg-linear-to-t from-emerald/40 to-transparent" />
             </div>
-            
+
             {/* Ornament Overlay */}
-            <motion.div 
+            <motion.div
               animate={{ rotate: 360 }}
               transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
               className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-24 h-24 border border-gold/40 rounded-full flex items-center justify-center bg-ivory p-1 z-20"
             >
               <div className="w-full h-full border border-gold/60 rounded-full flex items-center justify-center">
-                 <span className="font-display text-gold text-3xl">&</span>
+                 <span className="font-display text-gold text-3xl">M&B</span>
               </div>
             </motion.div>
           </motion.div>
@@ -102,7 +102,7 @@ export const CoupleDetails = () => {
           className="mt-20 text-center"
         >
           <p className="text-gold uppercase tracking-[0.4em] text-[10px] font-bold mb-4">Best Compliments</p>
-          <p className="font-serif text-lg md:text-xl text-emerald">Kavya B Krishnan, Anuj Sasikmar, Family & Friends</p>
+          <p className="font-serif text-lg md:text-xl text-emerald">Kavya B Krishnan, Anuj Sasikumar, Family & Friends</p>
         </motion.div>
 
         {/* Decorative Saree/Mundu Border Pattern (Simulated with CSS/SVGs) */}

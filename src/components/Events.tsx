@@ -19,7 +19,7 @@ const EVENTS: WeddingEvent[] = [
     location: '',
     venue: 'Shangri LAA Convention Center',
     dressCode: '',
-    image: '/src/assets/images/Shangrilaa.png'
+    image: '/images/Shangrilaa.png'
   }
 ];
 
@@ -85,34 +85,50 @@ export const Events = () => {
                 <span className="font-serif italic text-gold text-lg mb-4 tracking-widest">{event.date}</span>
                 <h3 className="font-display text-5xl md:text-7xl mb-8 leading-tight tracking-tight group-hover:text-gradient-gold transition-all duration-700 drop-shadow-lg">{event.title}</h3>
 
-                <div className="space-y-6 max-w-sm flex flex-col items-end transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-100">
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  className="space-y-6 max-w-sm flex flex-col items-end"
+                >
                    <div className="flex items-center gap-4 text-white/90 drop-shadow-md">
                      <span className="text-xl md:text-2xl uppercase tracking-[0.2em] font-medium">{event.time}</span>
                      <Clock size={20} className="text-gold" />
                    </div>
-                   <div className="flex items-start justify-end gap-4 text-white/90 drop-shadow-md">
+                   <motion.div
+                     initial={{ opacity: 0, y: 20 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                     className="flex items-start justify-end gap-4 text-white/90 drop-shadow-md"
+                   >
                      <div className="text-right">
                        <span className="text-lg md:text-xl font-bold block text-white">{event.venue}</span>
                        <span className="text-xs uppercase tracking-widest opacity-80">{event.location}</span>
                      </div>
                      <MapPin size={20} className="text-gold shrink-0 mt-1" />
-                   </div>
-                   
-                  <motion.a 
+                   </motion.div>
+
+                  <motion.a
                     href="https://maps.app.goo.gl/pHu75dbupxo6Rf3y5"
                     target="_blank"
                     rel="noopener noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className="w-full mt-6 py-4 border border-white/20 rounded-full text-white text-[10px] uppercase tracking-[0.3em] hover:bg-white hover:text-emerald transition-all inline-block text-center"
                   >
                     Get Directions
                   </motion.a>
-                </div>
+                </motion.div>
               </div>
 
               {/* Action Indicator */}
-              <div className="absolute top-10 left-10 flex flex-col items-center gap-2 opacity-40 group-hover:opacity-100 transition-opacity">
+              <div className="absolute top-10 left-10 flex-col items-center gap-2 opacity-40 hidden md:flex">
                 <div className="w-[1px] h-10 bg-gold" />
                 <span className="vertical-text text-[9px] text-white tracking-[0.4em] uppercase">Details</span>
               </div>

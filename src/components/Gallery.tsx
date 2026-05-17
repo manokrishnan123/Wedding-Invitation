@@ -2,12 +2,12 @@ import { motion } from 'motion/react';
 import { cn } from '@/src/lib/utils';
 
 const IMAGES = [
-  '/src/assets/images/Gallery01.png',
-  '/src/assets/images/Gallery1.png',
-  '/src/assets/images/Gallery6.png',
-  '/src/assets/images/Gallery3.png',
-  '/src/assets/images/Gallery2.png',
-  '/src/assets/images/Gallery7.png',
+  '/images/Gallery01.png',
+  '/images/Gallery1.png',
+  '/images/Gallery6.png',
+  '/images/Gallery3.png',
+  '/images/Gallery2.png',
+  '/images/Gallery7.png',
 ];
 
 export const Gallery = () => {

@@ -32,7 +32,7 @@ export const Hero = () => {
         <div className="absolute inset-0 bg-black/40 z-10" />
         <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black/60 z-20" />
         <img 
-          src="/src/assets/images/ChatGPT Image May 17, 2026, 12_46_37 PM.png" 
+          src="/images/ChatGPT Image May 17, 2026, 12_46_37 PM.png" 
           alt="Luxury Kerala Wedding Background"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"

@@ -1,16 +1,32 @@
 import { motion } from 'motion/react';
 import { Volume2, VolumeX } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export const AudioToggle = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const toggleAudio = () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio('/audio/background-music.mp3');
+      audioRef.current.loop = true;
+      audioRef.current.volume = 0.4;
+    }
+
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
 
   return (
     <motion.button
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       className="fixed bottom-24 right-6 md:bottom-12 md:right-12 z-[90] glass w-12 h-12 rounded-full flex items-center justify-center text-emerald shadow-2xl border-gold/20"
-      onClick={() => setIsPlaying(!isPlaying)}
+      onClick={toggleAudio}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >

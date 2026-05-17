@@ -17,8 +17,7 @@ const EVENTS: WeddingEvent[] = [
     date: 'Aug 30, 2026',
     time: '10:30 AM - 11:30 AM',
     location: '',
-    venue: 'Shangri LAA Convention Center',
-    dressCode: '',
+    venue: 'Shangri-Laa Convention Center',
     image: '/images/Shangrilaa.png'
   }
 ];
@@ -66,9 +65,9 @@ export const Events = () => {
                   referrerPolicy="no-referrer"
                 />
                 {/* Solid color backdrop behind text (blends to image) */}
-                <div className="absolute inset-0 bg-emerald-950/80 md:bg-transparent z-5" />
-                <div className="absolute inset-y-0 right-0 w-full md:w-[60%] bg-emerald-950/90 z-5 hidden md:block" />
-                <div className="absolute inset-y-0 right-[60%] w-64 bg-linear-to-l from-emerald-950/90 to-transparent z-5 hidden md:block" />
+                <div className="absolute inset-0 bg-emerald-950/40 md:bg-transparent z-5" />
+                <div className="absolute inset-y-0 right-0 w-full md:w-[60%] bg-emerald-950/50 z-5 hidden md:block" />
+                <div className="absolute inset-y-0 right-[60%] w-64 bg-linear-to-l from-emerald-950/50 to-transparent z-5 hidden md:block" />
                 
                 {/* Subtle glass effect for the text area */}
                 <div className="absolute inset-0 bg-black/10 z-6 pointer-events-none" />
@@ -93,7 +92,7 @@ export const Events = () => {
                   className="space-y-6 max-w-sm flex flex-col items-end"
                 >
                    <div className="flex items-center gap-4 text-white/90 drop-shadow-md">
-                     <span className="text-xl md:text-2xl uppercase tracking-[0.2em] font-medium">{event.time}</span>
+                     <span className="text-xl md:text-2xl uppercase tracking-[0.2em] font-bold">{event.time}</span>
                      <Clock size={20} className="text-gold" />
                    </div>
                    <motion.div

@@ -64,8 +64,8 @@ export const CoupleDetails = () => {
 
             {/* Ornament Overlay */}
             <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+              animate={{ rotate: 45 }}
+              transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
               className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-24 h-24 border border-gold/40 rounded-full flex items-center justify-center bg-ivory p-1 z-20"
             >
               <div className="w-full h-full border border-gold/60 rounded-full flex items-center justify-center">

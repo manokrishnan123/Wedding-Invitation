@@ -27,7 +27,7 @@ export const Gallery = () => {
             whileInView={{ opacity: 1, y: 0 }}
             className="font-display text-5xl md:text-7xl text-emerald mt-4"
           >
-            Wedding Gallery
+            Gallery
           </motion.h2>
           <div className="w-12 h-px bg-gold/50 mx-auto mt-6" />
         </div>
@@ -55,7 +55,7 @@ export const Gallery = () => {
               />
               <div className="absolute inset-0 bg-linear-to-t from-emerald/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                 <span className="text-white text-[10px] uppercase tracking-[0.3em] font-bold border-b border-white/30 pb-1">
-                  Enlarge Moment
+                  
                 </span>
               </div>
             </motion.div>

@@ -87,15 +87,15 @@ export const Events = () => {
 
                 <div className="space-y-6 max-w-sm flex flex-col items-end transform translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-100">
                    <div className="flex items-center gap-4 text-white/90 drop-shadow-md">
-                     <span className="text-xs uppercase tracking-[0.2em] font-medium">{event.time}</span>
-                     <Clock size={16} className="text-gold" />
+                     <span className="text-xl md:text-2xl uppercase tracking-[0.2em] font-medium">{event.time}</span>
+                     <Clock size={20} className="text-gold" />
                    </div>
                    <div className="flex items-start justify-end gap-4 text-white/90 drop-shadow-md">
                      <div className="text-right">
-                       <span className="text-sm font-bold block text-white">{event.venue}</span>
+                       <span className="text-lg md:text-xl font-bold block text-white">{event.venue}</span>
                        <span className="text-xs uppercase tracking-widest opacity-80">{event.location}</span>
                      </div>
-                     <MapPin size={16} className="text-gold shrink-0 mt-1" />
+                     <MapPin size={20} className="text-gold shrink-0 mt-1" />
                    </div>
                    
                   <motion.a 

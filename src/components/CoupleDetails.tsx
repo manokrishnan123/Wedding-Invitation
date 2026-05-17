@@ -95,6 +95,16 @@ export const CoupleDetails = () => {
         </div>
 
 
+        {/* Best Compliments */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="mt-20 text-center"
+        >
+          <p className="text-gold uppercase tracking-[0.4em] text-[10px] font-bold mb-4">Best Compliments</p>
+          <p className="font-serif text-lg md:text-xl text-emerald">Kavya B Krishnan, Anuj Sasikmar, Family & Friends</p>
+        </motion.div>
+
         {/* Decorative Saree/Mundu Border Pattern (Simulated with CSS/SVGs) */}
         <div className="mt-32 opacity-10 flex justify-center gap-12">
            {[...Array(5)].map((_, i) => (

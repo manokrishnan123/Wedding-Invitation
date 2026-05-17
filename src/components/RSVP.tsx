@@ -17,10 +17,28 @@ export const RSVP = () => {
     });
   };
 
-  const onSubmit = (data: any) => {
-    console.log('RSVP Data:', data);
-    setSubmitted(true);
-    triggerConfetti();
+  const [submitting, setSubmitting] = useState(false);
+
+  const onSubmit = async (data: any) => {
+    setSubmitting(true);
+    try {
+      await fetch('https://script.google.com/macros/s/AKfycbxup8_FJsidXI_--hXmPfurweYFYuGZ4w1-b5sKxrrwD4vNav72qmekrSAedX2oVUOmbQ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          guests: data.guests,
+          attending: data.attending,
+        }),
+      });
+      setSubmitted(true);
+      triggerConfetti();
+    } catch (error) {
+      console.error('RSVP submission failed:', error);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -107,8 +125,8 @@ export const RSVP = () => {
             <div className="space-y-8">
                <div>
                   <h4 className="text-gold uppercase tracking-widest text-[10px] font-bold mb-2">For Assistance</h4>
-                  <span className="font-serif text-xl text-emerald block">hello@manoandbisna.com</span>
-                  <span className="font-serif text-xl text-emerald block">+91 94000 00000</span>
+                  <span className="font-serif text-xl text-emerald block">manobk08@gmail.com</span>
+                  <span className="font-serif text-xl text-emerald block">+91 94950 67678</span>
                </div>
             </div>
           </div>
@@ -136,7 +154,7 @@ export const RSVP = () => {
               <div className="space-y-4">
                 <label className="text-[9px] uppercase tracking-[0.4em] font-bold text-gold">Guest Count</label>
                 <div className="flex gap-4">
-                  {[1, 2, 3, 4].map((num) => (
+                  {[1, 2, 3, 4, '5+'].map((num) => (
                     <label key={num} className="relative cursor-pointer group flex-1">
                        <input type="radio" {...register('guests', { required: true })} value={num} className="hidden peer" />
                        <div className="w-full py-3 text-center border border-emerald/10 rounded-xl peer-checked:bg-emerald peer-checked:text-white peer-checked:border-emerald transition-all font-serif italic group-hover:border-gold">
@@ -153,7 +171,7 @@ export const RSVP = () => {
                     <label key={val} className="relative cursor-pointer group flex-1">
                        <input type="radio" {...register('attending', { required: true })} value={val} className="hidden peer" />
                        <div className="w-full py-3 text-center border border-emerald/10 rounded-xl peer-checked:bg-emerald peer-checked:text-white peer-checked:border-emerald transition-all font-serif italic text-sm uppercase tracking-widest group-hover:border-gold">
-                         {val === 'yes' ? 'Accepts' : 'Declines'}
+                         {val === 'yes' ? 'Accept' : 'Decline'}
                        </div>
                     </label>
                   ))}
@@ -161,12 +179,13 @@ export const RSVP = () => {
               </div>
             </div>
 
-            <motion.button 
+            <motion.button
               whileHover={{ scale: 1.01 }}
               whileTap={{ scale: 0.99 }}
-              className="w-full py-6 bg-emerald text-white rounded-2xl uppercase tracking-[0.5em] text-xs font-bold shadow-2xl shadow-emerald/30 flex items-center justify-center gap-4 transition-all hover:bg-black"
+              disabled={submitting}
+              className="w-full py-6 bg-emerald text-white rounded-2xl uppercase tracking-[0.5em] text-xs font-bold shadow-2xl shadow-emerald/30 flex items-center justify-center gap-4 transition-all hover:bg-black disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Confirm Presence
+              {submitting ? 'Submitting...' : 'Confirm Presence'}
             </motion.button>
             <p className="text-[9px] text-center text-gray-400 uppercase tracking-widest">Thank you for being part of our story.</p>
           </motion.form>

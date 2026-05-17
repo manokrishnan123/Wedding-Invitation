@@ -74,6 +74,17 @@ export const CoupleDetails = () => {
             </motion.div>
           </motion.div>
 
+          {/* "With" separator - visible on mobile between groom & bride */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="order-2 lg:hidden flex items-center gap-4 my-2"
+          >
+            <div className="flex-1 h-px bg-gold/20" />
+            <span className="font-serif italic text-gold text-xl tracking-widest">With</span>
+            <div className="flex-1 h-px bg-gold/20" />
+          </motion.div>
+
           {/* The Bride */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}

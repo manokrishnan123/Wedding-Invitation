@@ -74,7 +74,7 @@ export const Events = () => {
               </div>
 
               {/* Content Overlay */}
-              <div className="absolute inset-0 flex flex-col items-end justify-center p-10 md:p-16 lg:p-24 z-20 text-white text-right">
+              <div className="absolute inset-0 flex flex-col items-end justify-end pb-12 px-8 md:justify-center md:p-16 lg:p-24 z-20 text-white text-right">
                 <motion.div 
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}

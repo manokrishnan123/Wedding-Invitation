@@ -82,7 +82,7 @@ export const Events = () => {
                 />
                 
                 <span className="font-serif italic text-gold text-lg mb-4 tracking-widest">{event.date}</span>
-                <h3 className="font-display text-5xl md:text-7xl mb-8 leading-tight tracking-tight group-hover:text-gradient-gold transition-all duration-700 drop-shadow-lg">{event.title}</h3>
+                <h3 className="font-display text-5xl md:text-7xl mt-4 mb-8 leading-tight tracking-tight group-hover:text-gradient-gold transition-all duration-700 drop-shadow-lg">{event.title}</h3>
 
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}

@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useMotionValueEvent } from 'motion/react';
-import { Heart, Calendar, MapPin, Image as ImageIcon, Send, Volume2, VolumeX } from 'lucide-react';
+import { Heart, Calendar, MapPin, Image as ImageIcon, PartyPopper, Volume2, VolumeX } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 import { useState } from 'react';
 import { useAudio } from './AudioToggle';
@@ -22,8 +22,8 @@ export const FloatingNav = () => {
   const navItems = [
     { icon: Heart, label: 'Couple', href: '#couple' },
     { icon: Calendar, label: 'Wedding', href: '#events' },
+    { icon: PartyPopper, label: 'Reception', href: '#reception' },
     { icon: ImageIcon, label: 'Gallery', href: '#gallery' },
-    { icon: Send, label: 'RSVP', href: '#rsvp' },
   ];
 
   return (
@@ -33,13 +33,13 @@ export const FloatingNav = () => {
         style={{ backgroundColor: navBackground }}
         className="fixed top-0 left-0 w-full z-[100] h-20 hidden md:flex items-center justify-between px-12 border-b border-white/5 transition-colors duration-500"
       >
-        <div className="font-display text-white text-2xl tracking-widest uppercase">
+        <div className="flex-1 font-display text-white text-2xl tracking-widest uppercase">
           M<span className="text-gold italic mx-1">&</span>B
         </div>
-        
+
         <div className="flex gap-12 glass px-10 py-3 rounded-full border-gold/10">
           {navItems.map((item) => (
-            <a 
+            <a
               key={item.label}
               href={item.href}
               className="group flex flex-col items-center gap-1"
@@ -47,21 +47,14 @@ export const FloatingNav = () => {
               <span className="text-white/60 text-[9px] uppercase tracking-[0.3em] font-bold group-hover:text-gold transition-colors">
                 {item.label}
               </span>
-              <motion.div 
+              <motion.div
                 className="h-[1px] bg-gold w-0 group-hover:w-full transition-all duration-300"
               />
             </a>
           ))}
         </div>
 
-        <motion.a 
-          href="#rsvp" 
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-8 py-2.5 bg-gold text-white text-[10px] uppercase tracking-[0.2em] font-bold rounded-full shadow-lg shadow-gold/20 hover:bg-[#B38D46] transition-all"
-        >
-          RSVP
-        </motion.a>
+        <div className="flex-1" />
       </motion.nav>
 
       {/* Mobile Nav (Floating Dock) */}

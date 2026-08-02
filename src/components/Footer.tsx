@@ -23,7 +23,7 @@ export const Footer = () => {
         </motion.div>
 
         <div className="flex flex-col md:flex-row gap-8 md:gap-20 justify-center items-center mb-24 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all">
-          {['Registry', 'The Couple', 'The Wedding', 'RSVP'].map((item) => (
+          {['Registry', 'The Couple', 'The Wedding', 'Reception'].map((item) => (
             <a 
               key={item} 
               href={`#${item === 'The Wedding' ? 'events' : item === 'The Couple' ? 'couple' : item.toLowerCase().replace(' ', '-')}`}
@@ -46,8 +46,7 @@ export const Footer = () => {
             </p>
 
             <div className="mt-12">
-              <h4 className="text-gold uppercase tracking-widest text-[10px] font-bold mb-3">For Assistance</h4>
-              <span className="font-serif text-xl text-emerald block">manobk08@gmail.com</span>
+              <h4 className="text-gold uppercase tracking-widest text-[10px] font-bold mb-3">Contact</h4>
               <span className="font-serif text-xl text-emerald block">+91 94950 67678</span>
             </div>
 

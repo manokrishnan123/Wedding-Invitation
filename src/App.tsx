@@ -8,7 +8,7 @@ import { Hero } from './components/Hero';
 import { CoupleDetails } from './components/CoupleDetails';
 import { Events } from './components/Events';
 import { Gallery } from './components/Gallery';
-import { RSVP } from './components/RSVP';
+import { Reception } from './components/Reception';
 import { Footer } from './components/Footer';
 import { FloatingNav } from './components/FloatingNav';
 import { AmbientLamps } from './components/AmbientLamps';
@@ -140,8 +140,8 @@ export default function App() {
         <Hero />
         <CoupleDetails />
         <Events />
+        <Reception />
         <Gallery />
-        <RSVP />
       </main>
 
       <Footer />
